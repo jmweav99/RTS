@@ -67,7 +67,7 @@ class latenessContainer{
         this.lateness = lateness;
     }
 }
-public class test{
+public class combined{
 	public static void main(String args[]){
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter number of tasks:");
