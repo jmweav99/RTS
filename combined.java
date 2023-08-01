@@ -123,10 +123,18 @@ public class combined{
             }
         }
         int EDDtotal = EDDsimulate(tasks3, taskNumber);
+        container.add(new latenessContainer("FCFS", FCFStotal));
+        container.add(new latenessContainer("SJF", SJFtotal));
+        container.add(new latenessContainer("EDD", EDDtotal));
+        for(int i = 0; i < 3; i++){
+            for(int  j = 0; j < 3; j++){
+                if(container.get(i).lateness < container.get(j).lateness){
+                    Collections.swap(container,i,j);
+                }
+            }
+        }
 
-        System.out.println("FCFS " + FCFStotal);
-        System.out.println("SJF " + SJFtotal);
-        System.out.println("EDD " + EDDtotal);
+        System.out.println("The most optimal algorithm is " + container.get(0).scheduler);
 	}
 	static int FCFSsimulate(List<Task1> tasks, int taskNumber){
         boolean active = false;
