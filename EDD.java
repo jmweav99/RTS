@@ -27,6 +27,7 @@ public class EDD{
 		List<Task> tasks = new ArrayList<Task>();
 		int computeTime;
 		int deadLine;
+		// adding a new task object for ech task
 		for(int i = 0; i < taskNumber; i++){
 			System.out.println("Enter Computation time for task " + (i+1));
 			computeTime = scanner.nextInt();
@@ -37,7 +38,7 @@ public class EDD{
 
 
 
-		//sorting deadlines
+		//sorting by deadlines using collections.swap
 		for(int i = 0; i < taskNumber; i++){
 			for(int j = 0; j < taskNumber; j++){
 				if(tasks.get(i).deadLine < tasks.get(j).deadLine){
@@ -45,12 +46,14 @@ public class EDD{
 				}
 			}
 		}
+		// Just printing out what the user inputted
 		for(Task temp : tasks){
 			System.out.println(temp);
 		}
 		System.out.println("Running simulation...");
 		EDDsimulate(tasks,taskNumber);
 	}
+	// This method time steps from 0 to 100, everystep subtracts one from the computation time of the task currently being 'run'
 	static void EDDsimulate(List<Task> tasks, int taskNumber){
 		boolean active = false;
 		int i = 0;
